@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EnvioRegistro } from '../dto/dtos';
-import { MiniTwitterService } from '../Services/mini-twitter.service';
+import { AuthRegisterDto } from '../models/dto/auth.dto';
+import { AuthService } from '../Services/auth.service';
+
 
 @Component({
   selector: 'app-registro',
@@ -8,9 +9,9 @@ import { MiniTwitterService } from '../Services/mini-twitter.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  registro= new EnvioRegistro();
+  registro= new AuthRegisterDto();
 
-  constructor(private miniservice:MiniTwitterService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -19,7 +20,8 @@ export class RegistroComponent implements OnInit {
     console.log('UserName'+username,'Email: '+email,'Password: '+password);
   }
 
-  postRegistro(){
+  postRegistro(username:String, email:String, password:String){
+
 
   }
 }
