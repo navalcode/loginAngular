@@ -1,8 +1,8 @@
 export class AuthRegisterDto {
-  username: string;
-  email: string;
-  password: string;
-  code: string;
+  username: String;
+  email: String;
+  password: String;
+  code: String;
 
   constructor (){
     this.username='',

@@ -21,7 +21,12 @@ export class RegistroComponent implements OnInit {
   }
 
   postRegistro(username:String, email:String, password:String){
+    let envio = new AuthRegisterDto ();
+    envio.username=username;
+    envio.email=email;
+    envio.password=password;
 
+    this.authService.register(envio).subscribe(res=> alert(`Te has registrado correctamente y tu token es ${res.token}`));
 
   }
 }
