@@ -5,7 +5,6 @@
         <input matInput id="userName" type="text" formControlName="userName">
 
         <mat-error *ngIf="isInvalid('userName')" class="alert alert-danger">
-
             <div *ngIf="registerForm.controls['userName'].errors?.['required']">
                 Se requiere el usuario
             </div>
@@ -20,7 +19,18 @@
 
     <mat-form-field class="formulario" appearance="fill">
         <mat-label for="userEmail">Email</mat-label>
-        <input matInput required id="userEmail" type="email" formControlName="userEmail">
+        <input matInput id="userEmail" type="email" formControlName="userEmail">
+        <mat-error *ngIf="isInvalid('userEmail')" class="alert alert-danger">
+            <div *ngIf="registerForm.controls['userEmail'].errors?.['required']">
+                Se requiere el email
+            </div>
+            <div *ngIf="registerForm.controls['userEmail'].errors?.['email']">
+                El formato introducido no se corresponde con un email
+            </div>
+            <div *ngIf="registerForm.controls['userEmail'].errors?.['minlength']">
+                El nombre debe tener más de 4 caracteres
+            </div>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field class="formulario" appearance="fill">

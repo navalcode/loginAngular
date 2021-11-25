@@ -15,7 +15,11 @@ export class RegistroComponent implements OnInit {
       Validators.required,
       Validators.minLength(4)
     ]),
-    userEmail: new FormControl(''),
+    userEmail: new FormControl('',[
+      Validators.required,
+      Validators.email,
+      Validators.minLength(5)
+    ]),
     userPassword: new FormControl('')
   });
 
