@@ -1,19 +1,32 @@
-<div class="paquete">
-  <div class="form-group">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-    <label for="username">Usuario</label>
-    <br>
-    <input type="text" class="form-control" id="username" required [(ngModel)]="registro.username" name="username" />
-    <br>
-    <label for="email">email</label>
-    <br>
-    <input type="email" class="form-control" id="email" required [(ngModel)]="registro.email" name="email" />
-    <br>
-    <label for="password">password</label>
-    <br>
-    <input type="password" class="form-control" id="password" required [(ngModel)]="registro.password" name="password" />
-    <br>
+    <mat-form-field class="formulario" appearance="fill">
+        <mat-label for="userName">Usuario</mat-label>
+        <input matInput id="userName" type="text" formControlName="userName">
 
-    <button mat-raised-button color="primary" (click)="postRegistro(registro.username,registro.email,registro.password)">registrarse</button>
-  </div>
-  </div>
+        <mat-error *ngIf="isInvalid('userName')" class="alert alert-danger">
+
+            <div *ngIf="registerForm.controls['userName'].errors?.['required']">
+                Se requiere el usuario
+            </div>
+
+            <div *ngIf="registerForm.controls['userName'].errors?.['minlength']">
+                El nombre debe tener más de 4 caracteres
+            </div>
+        </mat-error>
+    </mat-form-field>
+
+
+
+    <mat-form-field class="formulario" appearance="fill">
+        <mat-label for="userEmail">Email</mat-label>
+        <input matInput required id="userEmail" type="email" formControlName="userEmail">
+    </mat-form-field>
+
+    <mat-form-field class="formulario" appearance="fill">
+        <mat-label for="userPassword">Contraseña</mat-label>
+        <input matInput required id="userPassword" type="password" formControlName="userPassword">
+    </mat-form-field>
+    <span class="formulario"><button type="submit" [disabled]="!registerForm.valid"  mat-raised-button color="primary"  >Registrarse</button></span>
+
+</form>

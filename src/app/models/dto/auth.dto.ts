@@ -4,10 +4,10 @@ export class AuthRegisterDto {
   password: String;
   code: String;
 
-  constructor (){
-    this.username='',
-    this.email='',
-    this.password='',
+  constructor (username:string,email:string,password:string){
+    this.username=username,
+    this.email=email,
+    this.password=password,
     this.code='UDEMYANDROID'
   }
 }

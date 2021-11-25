@@ -15,18 +15,15 @@ const  DEFAULT_HEADERS = {
   providedIn: 'root'
 })
 
-
-
 export class AuthService {
-
-  auth: String='auth';
 
  constructor(private http: HttpClient) { }
 
-  register(envio:AuthRegisterDto)  : Observable<RespuestaRegistro> {
+  register(username:string,email:string,password:string)  : Observable<RespuestaRegistro> {
+    let envio;
+    envio= new AuthRegisterDto(username,email,password);
 
-  return this.http.post<RespuestaRegistro>(`${environment.apiBaseUrl}/${this.auth}/signup`,envio,DEFAULT_HEADERS);
-
+  return this.http.post<RespuestaRegistro>(`${environment.apiBaseUrl}/auth/signup`,envio,DEFAULT_HEADERS);
   }
 
 }

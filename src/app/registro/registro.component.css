@@ -1,14 +1,15 @@
-.paquete{
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  border: 2px solid black;
-  padding: 10px;
-  border-radius: 10px;
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 200px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 25px;
+    border: 2px solid rgb(2, 56, 231);
+    border-radius: 25px;
 }
 
-button{
-  margin: auto;
-  display: flex;
-  justify-content:center;
+mat-form-field {
+    margin-top: 15px;
 }

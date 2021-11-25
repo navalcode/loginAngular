@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthRegisterDto } from '../models/dto/auth.dto';
 import { AuthService } from '../Services/auth.service';
 
@@ -9,24 +10,32 @@ import { AuthService } from '../Services/auth.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  registro= new AuthRegisterDto();
+  registerForm = new FormGroup({
+    userName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(4)
+    ]),
+    userEmail: new FormControl(''),
+    userPassword: new FormControl('')
+  });
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  imprimir(username:String, email:String, password:String){
-    console.log('UserName'+username,'Email: '+email,'Password: '+password);
+  onSubmit() {
+    this.register();
+    console.warn(this.registerForm.value);
   }
 
-  postRegistro(username:String, email:String, password:String){
-    let envio = new AuthRegisterDto ();
-    envio.username=username;
-    envio.email=email;
-    envio.password=password;
+  register(){
+    this.authService.register(this.registerForm.get('userName')?.value,this.registerForm.get('userEmail')?.value,this.registerForm.get('userPassword')?.value).subscribe(res=>{
+      alert(`Te has registrado correctamente y tu token es ${res.token}`)
+    });
+  }
 
-    this.authService.register(envio).subscribe(res=> alert(`Te has registrado correctamente y tu token es ${res.token}`));
-
+  isInvalid(controlName: string) {
+    return this.registerForm.get(controlName)?.invalid && (this.registerForm.get(controlName)?.dirty || this.registerForm.get(controlName)?.touched);
   }
 }

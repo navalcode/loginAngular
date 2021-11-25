@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl:"https://www.minitwitter.com:3001/apiv1"
+  apiBaseUrl:"https://www.minitwitter.com:3001/apiv1",
+  code:'UDEMYANDROID'
 };
 
 /*
