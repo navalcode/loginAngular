@@ -1,4 +1,11 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+<ul *ngIf="authenticated()">
+  <li *ngFor="let tweet of tweetList">{{tweet.mensaje}}</li>
+
+</ul>
+
+
+<form *ngIf="!authenticated()" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
     <mat-form-field class="formulario" appearance="fill">
         <mat-label for="userName">Usuario</mat-label>
