@@ -1,18 +1,26 @@
-# Angular registration component
+# MiniTwitter registration and posts
 
 [English](#overview) · [Español](#resumen)
 
 ## Overview
 
-Angular/TypeScript exercise with registration component.
+Angular exercise that sends a registration request, stores the returned token and reads posts. The relevant code is split between the form and two HTTP services.
 
-An earlier learning exercise. The source is preserved with its original toolchain; compatibility with current versions has not been revalidated.
+The external MiniTwitter service has not been contacted in this review. Error recovery, session handling and a current build remain unverified. Use fictional inputs while studying the request flow.
+
+- [`registro.component.ts`](src/app/registro/registro.component.ts)
+- [`auth.service.ts`](src/app/Services/auth.service.ts)
+- [`tweets.service.ts`](src/app/Services/tweets.service.ts)
+
+[package.json](package.json): The package file records the original scripts and dependencies; package-lock.json retains their resolution.
 
 ## Resumen
 
-Ejercicio Angular/TypeScript con componente de registro.
+Ejercicio Angular que envía un registro, guarda el token recibido y consulta publicaciones. El código se reparte entre el formulario y dos servicios HTTP.
 
-Ejercicio de una etapa anterior de aprendizaje. Se conserva con sus herramientas originales; no se ha vuelto a validar con versiones actuales.
+No se ha contactado con el servicio externo de MiniTwitter en esta revisión. Quedan sin verificar la recuperación de errores, la sesión y un build actual. Usa datos ficticios al estudiar el flujo de peticiones.
+
+Consulta los archivos enlazados arriba para seguir la implementación. [package.json](package.json): El paquete recoge los scripts y dependencias originales; package-lock.json conserva su resolución.
 
 <details>
 <summary>Original documentation and credits · Documentación y créditos originales</summary>

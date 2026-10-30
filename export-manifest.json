@@ -1,0 +1,14 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "2d8b368c2b65b2450428746a3f9a78686bc53a5a8c405d3c8e49991dbf3a4727"
+  },
+  {
+    "path": "README.md",
+    "sha256": "33449d0523e7d54f04bdc5c72df71983be1c8bb0c301d5f9d1036afc29fd0176"
+  },
+  {
+    "path": "src/app/registro/registro.component.ts",
+    "sha256": "1069c568cc50677bef93442abc812b335b4168d441a5a54d396c73efe0cee724"
+  }
+]

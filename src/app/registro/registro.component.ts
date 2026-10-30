@@ -35,7 +35,6 @@ export class RegistroComponent implements OnInit {
 
   onSubmit() {
     this.register();
-    console.warn(this.registerForm.value);
   }
 
   register(){
@@ -52,7 +51,6 @@ export class RegistroComponent implements OnInit {
   getTweets(){
     this.tweetsService.getTweets().subscribe(res=>{
       this.tweetList = res;
-      console.log(res);
     });
   }
   authenticated(){
